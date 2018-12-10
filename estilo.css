@@ -1,216 +1,219 @@
-@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
-
-:root {
- --background:-webkit-linear-gradient(top, rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.75) 100%); 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
+html {
+	font-size: 100%;
 }
 
 body {
-	margin: 0;
-	background: #222;
-	font-family: 'Work Sans', sans-serif;
-	font-weight: 400;
+	font-family: Roboto, Arial, Tahoma, Sans-serif;
 }
 
-.conteudo {
-	padding-top:3%;
-	height: 100vh;
-	color:white;
-	display: grid;
-	background-color: #333;
+.container {
+	max-width: 1000px;
+	margin: 0 auto;
 }
 
-
-header {
-  background: var(--background);
-  text-align: center;
-  position: fixed;
-  z-index: 999;
-  width: 100%;
+.title-1 {
+	font-weight: 700;
+	font-size: 2.5rem; /* contexto / 16px = rem */
+	text-align: center;
+	margin-bottom: 10px;
 }
 
-
-.nav-toggle {
-  position: absolute !important;
-  top: -9999px !important;
-  left: -9999px !important;
+.title-1 + p {
+	margin: 0 auto 100px;
+	width: 700px;
+	color: rgba(0, 0, 0, 0.4);
+	text-align: center;
+	font-weight: 300;
+	font-size: 1.13rem;
 }
 
-.nav-toggle:focus ~ .nav-toggle-label {
-  outline: 3px solid rgba(lightblue, .75);
+section {
+	padding: 100px 0;
 }
 
-.nav-toggle-label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-left: 1em;
-  height: 100%;
-  display: flex;
-  align-items: center;
+section:after,
+section:before {
+	content: "";
+	display: block;
+	clear: both;
 }
 
-.nav-toggle-label span,
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-  display: block;
-  background: white;
-  height: 2px;
-  width: 2em;
-  border-radius: 2px;
-  position: relative;
+img {
+	max-width: 100%;
 }
 
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-  content: '';
-  position: absolute;
+/***
+**** HEADER
+***/
+.header {
+	position: fixed;
+	top: 20px;
+	width: 100%;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.90);
+	padding: 30px 0;
 }
 
-.nav-toggle-label span::before {
-  bottom: 7px;
-}
-
-.nav-toggle-label span::after {
-  top: 7px;
-}
-
-nav {
-  position: absolute;
-  text-align: left;
-  top: 100%;
-  left: 0;
-  background: var(--background);
-  width: 100%;
-  transform: scale(1, 0);
-  transform-origin: top;
-  transition: transform 400ms ease-in-out;
-}
-
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-nav li {
-  margin-bottom: 1em;
-  margin-left: 1em;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  opacity: 0;
-  transition: opacity 150ms ease-in-out;
-}
-
-nav a:hover {
-  color: #999;
-}
-
-.nav-toggle:checked ~ nav {
-  transform: scale(1,1);
-}
-
-.nav-toggle:checked ~ nav a {
-  opacity: 1;
-  transition: opacity 250ms ease-in-out 250ms;
-}
-
-@media screen and (min-width: 800px) {
-  .nav-toggle-label {
-    display: none;
-  }
-
-  header {
-    display: grid;
-    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
-  }
-  
-  .logo {
-    grid-column: 2 / 3;
-}
-  
-  nav {
-    all: unset;
-    grid-column: 3 / 4;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-  
-  nav ul {
-    display: flex;
-  }
-  
-  nav li {
-    margin-left: 3em;
-    margin-bottom: 0;
-  }
-  
-  nav a {
-    opacity: 1;
-    position: relative;
-  }
-  
-  nav a::before {
-    content: '';
-    display: block;
-    height: 5px;
-    background: white;
-    position: absolute;
-    top: -.75em;
-    left: 0;
-    right: 0;
-    transform: scale(0, 1);
-    transition: transform ease-in-out 250ms;
-  }
-  
-  nav a:hover::before {
-    transform: scale(1,1);
-  }
-
-}
-
-.responsiva {
-  //width: 100%;
-  //height: auto;
-}
-
-
-/*                  FOOTER                    */
-
-footer {
-    position: bottom;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #444;
-    color: white;
-    text-align: center;
-    background-color: rgba(0,0,0,.3);
-    overflow-x: visible;
-	padding:0.5%;
-}
-@media screen and (max-width: 1128px) {
-.conteudo {
-   padding: 0 2.4em 0 2.4em;
-}
-}
-
-@media screen and (max-width: 768px) {
-.conteudo {
-   width: 100%;
-   padding-top:1%;
-   align-items: center;
-}
 .logo {
-   margin-top: 1.2em;
+	font-weight: 300;
+	color: #fff;
+	padding: 0 0 20px;
+	display: none;
 }
+
+.header li {display: inline-block;}
+
+.header a {
+	display: inline-block;
+	padding: 0 20px;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: 300;
+	font-size: .88rem;
+	letter-spacing: 3px;
+}
+
+.highlight {
+	box-shadow: inset 0 -10px 15px rgba(0, 0, 0, 0.2);
+	padding: 190px 0 150px;
+	background: url(img/highlight.jpg) fixed no-repeat center -50px;
+	background-size: cover;
+	text-align: center;
+	color: #000;
+}
+
+.highlight h1 {
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 3.13rem;
+}
+
+.highlight p {
+	width: 900px;
+	margin: auto;
+	padding: 50px 0;
+	font-weight: 100;
+	font-size: 1.88rem;
+}
+
+.highlight .btn {font-size: 1.25rem;}
+
+/***
+**** FEATURES
+***/
+.feature {
+	display: inline-block;
+	vertical-align: top;
+	width: 33%;
+	padding: 20px;
+	margin-bottom: 50px;
+}
+
+
+.feature h2 {
+	font-size: 18px;
+}
+
+.feature p,
+.more-info p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 1.5;
+	margin: 10px auto 25px;
+}
+
+/***
+**** More Links
+***/
+.more-links {
+	background-color: #f0eeed;
+	text-align: center;
+}
+
+.more-lnk {color: #000;}
+
+.more-info {
+	display: inline-block;
+	vertical-align: top;
+	width: 400px;
+	margin-right: 50px;
+}
+.more-info:last-child {margin-right: 0;}
+
+.more-info figure {
+	/*overflow: hidden;
+	height: 200px;*/
+	display: block;
+	margin-bottom: 30px;
+}
+.more-info img {width: 400px;}
+
+/***
+**** offer
+***/
+.offer {
+	text-align: center;
+}
+
+.text {
+	width: 450px;
+	float: left;
+	text-align: left;
+}
+
+.offer img {
+	float: right;
+	width: 500px;
+	margin-left: 40px;
+}
+
+.offer h1 {
+	margin-bottom: 20px;
+	font-weight: 700;
+	font-size: 2.5rem;
+}
+
+.offer p {
+	font-weight: 300;
+	font-size: 1.25rem;
+	line-height: 1.5;
+}
+
+
+/***
+**** Botoes
+***/
+.btn {
+	display: inline-block;
+	padding: 10px 20px;
+	border-radius: 3px;
+	border: 3px solid;
+	color: rgba(0, 0, 0, 0.8);
+	text-decoration: none;
+}
+
+.btn:hover {
+	background-color: #000;
+	border-color: #000;
+	color: #fff;
+}
+
+
+/***
+**** FOOTER
+***/
+.footer {
+	padding: 20px;
+	clear: both;
+	font-size: 14px;
+	font-weight: 700;
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	text-align: center;
 }
